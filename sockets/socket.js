@@ -18,7 +18,15 @@ io.on('connection', (client) => {
     return client.disconnect()
   }
 
+  //Este cliente esta autenticado
   usuarioConectado(uid)
+
+  client.join(uid);
+
+  client.on('mensaje-personal', (payload) => {
+    console.log(payload)
+  })
+
 
   client.on('disconnect', () => {
       usuarioDesconectado(uid)
