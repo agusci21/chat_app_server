@@ -1,11 +1,15 @@
-const { crearUsuario, login, renewToken } = require('../controllers/auth')
-const { validarCampos } = require('../middlewares/validar-campos')
-const { validarJWT } = require('../middlewares/validar-jwt')
+/*
+    path: api/usuarios
 
-const { getUsuarios } = require('../controllers/usuarios')
-const { Router } = require('express')
-const router = Router()
+*/
+const { Router } = require('express');
+const { validarJWT } = require('../middlewares/validar-jwt');
 
-router.get('/', validarJWT, getUsuarios)
+const { getUsuarios } = require('../controllers/usuarios');
 
-module.exports = router
+const router = Router();
+
+
+router.get('/', validarJWT, getUsuarios );
+
+module.exports = router;
